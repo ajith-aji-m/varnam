@@ -77,6 +77,16 @@ footer b{color:var(--gold)}
 }
 @media(max-width:480px){.nav-cta{font-size:8px}.brand small{display:none}.journey-grid{gap:9px}.card-overlay{inset:auto 9px 9px;font-size:7px}.journey h2{font-size:3rem}.price-card{padding:28px}}
 
+/* Mobile header brand alignment */
+@media(max-width:600px){
+  .site-header{min-height:64px;padding:12px 7vw;align-items:center}
+  .brand{display:flex;align-items:center;gap:9px;grid-template-columns:none;grid-template-rows:none}
+  .brand-mark{display:flex;align-items:center;justify-content:center;flex:0 0 28px;line-height:1;font-size:25px}
+  .brand-name{display:block;font-size:18px;line-height:1;letter-spacing:.18em;white-space:nowrap}
+  .brand small{display:none}
+  .nav-cta{align-self:center;line-height:1}
+}
+
 
 /* Editorial visual storytelling */
 .editorial-break{position:relative;max-width:1500px;margin:0 auto;min-height:720px;padding:120px 9.3vw;display:grid;grid-template-columns:1.1fr .8fr .42fr;gap:34px;align-items:center;background:#100b0c;overflow:hidden}
