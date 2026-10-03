@@ -26,10 +26,10 @@ jobs:
           curl -L --fail --retry 3 "https://images.pexels.com/photos/39797465/pexels-photo-39797465.jpeg?cs=srgb&dl=pexels-aumgraphy-39797465.jpg&fm=jpg" -o assets/tmp/mandapam.jpg
           curl -L --fail --retry 3 "https://images.pexels.com/photos/5599007/pexels-photo-5599007.jpeg?cs=srgb&dl=pexels-tasprint-5599007.jpg&fm=jpg" -o assets/tmp/bride.jpg
 
-          magick assets/tmp/hero.jpg -auto-orient -resize '2400x1350^' -gravity center -extent 2400x1350 -strip -quality 88 assets/hero-mandapam.webp
-          magick assets/tmp/entrance.jpg -auto-orient -resize '1800x2250^' -gravity center -extent 1800x2250 -strip -quality 88 assets/entrance.webp
-          magick assets/tmp/mandapam.jpg -auto-orient -resize '1800x2250^' -gravity center -extent 1800x2250 -strip -quality 88 assets/mandapam.webp
-          magick assets/tmp/bride.jpg -auto-orient -resize '1600x2000^' -gravity center -extent 1600x2000 -strip -quality 88 assets/bride-detail.webp
+          ffmpeg -y -i assets/tmp/hero.jpg -vf "scale=2400:1350:force_original_aspect_ratio=increase,crop=2400:1350" -c:v libwebp -quality 82 assets/hero-mandapam.webp
+          ffmpeg -y -i assets/tmp/entrance.jpg -vf "scale=1800:2250:force_original_aspect_ratio=increase,crop=1800:2250" -c:v libwebp -quality 82 assets/entrance.webp
+          ffmpeg -y -i assets/tmp/mandapam.jpg -vf "scale=1800:2250:force_original_aspect_ratio=increase,crop=1800:2250" -c:v libwebp -quality 82 assets/mandapam.webp
+          ffmpeg -y -i assets/tmp/bride.jpg -vf "scale=1600:2000:force_original_aspect_ratio=increase,crop=1600:2000" -c:v libwebp -quality 82 assets/bride-detail.webp
 
           rm -rf assets/tmp
 
@@ -38,7 +38,7 @@ jobs:
           cat > assets/SOURCES.md <<'EOF'
           # Image Sources
 
-          These production assets are optimized WebP copies of free-to-use Pexels photos selected to match the Varnam crimson-red / antique-gold wedding direction.
+          These production assets are optimized WebP copies of Pexels photos selected to match the Varnam crimson-red / antique-gold wedding direction.
 
           - hero-mandapam.webp — Pexels photo 33417234 — The Visionary Vows
           - entrance.webp — Pexels photo 33417236 — The Visionary Vows
