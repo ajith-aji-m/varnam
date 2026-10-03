@@ -1,50 +1,61 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Varnam — premium Indian wedding decoration, crafted with cinematic detail.">
-  <title>Varnam — Indian Wedding Decoration</title>
-  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Varnam creates cinematic Indian wedding decoration — mandapams, entrances, floral installations and reception spaces.">
+<meta name="theme-color" content="#120d0d">
+<title>Varnam — Crafted for Celebrations</title>
+<link rel="preload" href="assets/hero-mandapam.svg" as="image" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="#">Varnam</a>
-    <nav>
-      <a href="#story">Story</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-  <main>
-    <section class="hero">
-      <div class="hero-content">
-        <p class="eyebrow">WEDDINGS · DECOR · STORIES</p>
-        <h1>Where every celebration finds its <em>colour.</em></h1>
-        <p class="intro">Cinematic Indian wedding decoration designed around your people, rituals and unforgettable moments.</p>
-        <a class="button" href="#contact">Plan your celebration</a>
-      </div>
-    </section>
-    <section id="story" class="section split">
-      <div><p class="eyebrow">THE VARNAM WAY</p><h2>Tradition, shaped for today.</h2></div>
-      <p>From the mandapam to the entrance, every space is composed as part of one visual story — rich materials, expressive florals and thoughtful lighting working together.</p>
-    </section>
-    <section id="services" class="section">
-      <p class="eyebrow">WHAT WE CREATE</p>
-      <h2>Spaces that stay with you.</h2>
-      <div class="cards">
-        <article><span>01</span><h3>Mandapam</h3><p>Layered floral installations and ceremony spaces with a refined Indian character.</p></article>
-        <article><span>02</span><h3>Entrance</h3><p>Memorable first impressions through arches, florals, fabric and warm light.</p></article>
-        <article><span>03</span><h3>Reception</h3><p>Elegant tablescapes and atmospheric details built for celebration and photographs.</p></article>
-      </div>
-    </section>
-    <section id="contact" class="section contact">
-      <p class="eyebrow">LET'S CREATE</p>
-      <h2>Your story deserves its own setting.</h2>
-      <a class="button" href="mailto:hello@varnam.example">Start a conversation</a>
-    </section>
-  </main>
-  <footer>© <span id="year"></span> Varnam. Crafted for celebrations.</footer>
-  <script src="script.js"></script>
+<header class="site-header">
+<a class="brand" href="#top" aria-label="Varnam home">VARNAM</a>
+<nav aria-label="Main navigation"><a href="#journey">Journey</a><a href="#collections">Collections</a><a href="#contact">Contact</a></nav>
+<a class="nav-cta" href="#contact">Enquire</a>
+</header>
+<main id="top">
+<section class="hero">
+<img class="hero-art" src="assets/hero-mandapam.svg" alt="Illustrated Indian wedding mandapam in crimson and antique gold">
+<div class="hero-overlay"></div>
+<div class="hero-content reveal">
+<p class="eyebrow">INDIAN WEDDING DECORATION · EST. 2026</p>
+<h1>Designed to be<br><em>remembered.</em></h1>
+<p class="intro">A cinematic decoration experience where heritage, florals and light come together around your celebration.</p>
+<a class="button" href="#journey">Enter the experience <span>↓</span></a>
+</div>
+<div class="scroll-note">SCROLL TO EXPLORE</div>
+</section>
+
+<section id="journey" class="journey section">
+<div class="section-heading reveal"><p class="eyebrow">THE JOURNEY</p><h2>From the first step<br>to the final frame.</h2></div>
+<div class="journey-grid">
+<article class="journey-card reveal"><div class="art-wrap"><img src="assets/entrance.svg" alt="Decorated wedding entrance arch"></div><div class="card-copy"><span>01 / ARRIVAL</span><h3>The entrance</h3><p>The first impression — sculptural arches, crimson florals and warm ceremonial light.</p></div></article>
+<article class="journey-card reveal"><div class="art-wrap"><img src="assets/mandapam.svg" alt="Detailed wedding mandapam"></div><div class="card-copy"><span>02 / CEREMONY</span><h3>The mandapam</h3><p>A layered stage built around ritual, symmetry and the quiet drama of Indian heritage.</p></div></article>
+<article class="journey-card reveal"><div class="art-wrap"><img src="assets/floral-detail.svg" alt="Antique gold and crimson floral detail"></div><div class="card-copy"><span>03 / DETAIL</span><h3>The details</h3><p>Petals, textures and small moments composed to look beautiful from every angle.</p></div></article>
+</div>
+</section>
+
+<section class="statement section reveal"><p class="eyebrow">VARNAM PHILOSOPHY</p><blockquote>“We don't decorate a venue.<br>We compose a <em>memory.</em>”</blockquote></section>
+
+<section id="collections" class="collections section">
+<div class="section-heading reveal"><p class="eyebrow">COLLECTIONS</p><h2>Choose your level<br>of celebration.</h2></div>
+<div class="pricing-grid">
+<article class="price-card reveal"><span class="tier">TIER 01</span><h3>Essential</h3><p>Elegant foundations for intimate celebrations.</p><ul><li>Entrance styling</li><li>Floral accents</li><li>Stage backdrop</li></ul><a href="#contact">Enquire →</a></article>
+<article class="price-card featured reveal"><span class="tier">TIER 02 · SIGNATURE</span><h3>Varnam</h3><p>A complete visual story from arrival to ceremony.</p><ul><li>Signature entrance</li><li>Full mandapam styling</li><li>Floral & lighting design</li></ul><a href="#contact">Enquire →</a></article>
+<article class="price-card reveal"><span class="tier">TIER 03</span><h3>Immersive</h3><p>An art-directed experience made around your celebration.</p><ul><li>Concept & art direction</li><li>Full venue transformation</li><li>Custom floral installations</li></ul><a href="#contact">Enquire →</a></article>
+</div>
+</section>
+
+<section id="contact" class="contact section reveal">
+<p class="eyebrow">YOUR CELEBRATION STARTS HERE</p>
+<h2>Let's make the setting<br><em>unforgettable.</em></h2>
+<p>Tell us the date, venue and feeling you want to create.</p>
+<a class="button" href="mailto:hello@varnam.example">Start a conversation <span>↗</span></a>
+</section>
+</main>
+<footer><span>VARNAM</span><span>INDIAN WEDDING DECORATION</span><span>© <b id="year"></b></span></footer>
+<script src="script.js.txt"></script>
 </body>
 </html>
