@@ -154,7 +154,7 @@ footer b{color:var(--gold)}
 .contact-inner{position:relative;z-index:2;max-width:900px}
 .contact h2{font-size:clamp(3.3rem,6vw,7rem);margin:25px 0 28px}
 .contact p:not(.eyebrow){color:#d5c0b7}
-.contact-mark{position:absolute;right:8vw;top:50%;transform:translateY(-50%);font-size:20rem;line-height:1;color:#e3bd7912;pointer-events:none}
+
 .contact .button{margin-top:5px;background:#e9d6bd;color:#190d0e}
 .contact .button:hover{background:#fff0dd}
 footer{background:#090606;border-top:1px solid #ffffff0d}
@@ -167,5 +167,40 @@ footer{background:#090606;border-top:1px solid #ffffff0d}
  .price-card{min-height:410px;padding:28px}
  .featured-stamp{right:-49px;top:23px}
  .contact{padding:95px 7vw}
- .contact-mark{right:-35px;font-size:12rem}
+ 
 }
+
+
+/* Premium floating star field for closing section */
+.contact{isolation:isolate}
+.contact-inner{max-width:820px}
+.contact-stars{position:absolute;z-index:1;inset:0;overflow:hidden;pointer-events:none}
+.contact-stars:before,.contact-stars:after{content:"";position:absolute;inset:-20% -5%;background-repeat:no-repeat}
+.contact-stars:before{
+background-image:
+radial-gradient(circle at 82% 18%,#f7dfb8 0 1px,transparent 1.7px),
+radial-gradient(circle at 91% 30%,#e7c58f 0 1.2px,transparent 1.9px),
+radial-gradient(circle at 76% 37%,#fff1d0 0 1px,transparent 1.8px),
+radial-gradient(circle at 88% 52%,#d9ad70 0 1.3px,transparent 2px),
+radial-gradient(circle at 70% 62%,#f5d9aa 0 1px,transparent 1.7px),
+radial-gradient(circle at 95% 70%,#fff0d0 0 1px,transparent 1.8px),
+radial-gradient(circle at 78% 83%,#d7a86b 0 1.2px,transparent 1.9px);
+opacity:.7;filter:blur(.1px);animation:starDrift 12s linear infinite}
+.contact-stars:after{
+background-image:
+radial-gradient(circle at 86% 8%,#fff1d0 0 1.5px,transparent 2.2px),
+radial-gradient(circle at 73% 24%,#d7aa70 0 1px,transparent 1.8px),
+radial-gradient(circle at 96% 43%,#f3d5a5 0 1px,transparent 1.7px),
+radial-gradient(circle at 82% 47%,#fff1d0 0 1px,transparent 1.7px),
+radial-gradient(circle at 92% 61%,#d7aa70 0 1.4px,transparent 2px),
+radial-gradient(circle at 74% 74%,#f8dfb9 0 1px,transparent 1.7px),
+radial-gradient(circle at 87% 91%,#fff1d0 0 1.2px,transparent 1.9px);
+opacity:.5;animation:starFall 9s ease-in-out infinite reverse}
+@keyframes starDrift{0%{transform:translate3d(0,-2%,0)}50%{transform:translate3d(-2%,3%,0)}100%{transform:translate3d(0,8%,0)}}
+@keyframes starFall{0%{transform:translate3d(2%,-8%,0);opacity:.15}45%{opacity:.65}100%{transform:translate3d(-4%,12%,0);opacity:.2}}
+.contact:after{content:"";position:absolute;z-index:1;right:-12%;top:8%;width:52%;height:100%;background:radial-gradient(ellipse at center,#e4b76d14,transparent 63%);pointer-events:none}
+.contact-inner{z-index:3}
+@media(max-width:700px){.contact-stars:before,.contact-stars:after{inset:-10% -15%}.contact:after{right:-35%;width:90%}}
+@media(prefers-reduced-motion:reduce){.contact-stars:before,.contact-stars:after{animation:none}}
+
+@keyframes individualStar{0%{transform:translate3d(0,-8px) scale(.7);opacity:.18}50%{transform:translate3d(-10px,5px) scale(1);opacity:.75}100%{transform:translate3d(-20px,18px) scale(.8);opacity:.25}}
