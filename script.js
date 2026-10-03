@@ -27,3 +27,23 @@ if(contactStars){
   }
   contactStars.appendChild(stars);
 }
+
+
+/* Golden dust falling through the hero */
+const heroSparkles=document.querySelector(".hero-sparkles");
+if(heroSparkles){
+  const fragment=document.createDocumentFragment();
+  for(let i=0;i<42;i++){
+    const sparkle=document.createElement("i");
+    const size=.8+Math.random()*2.1;
+    sparkle.style.left=(Math.random()*100).toFixed(2)+"%";
+    sparkle.style.width=size.toFixed(2)+"px";
+    sparkle.style.height=size.toFixed(2)+"px";
+    sparkle.style.setProperty("--drift",(-28+Math.random()*56).toFixed(1)+"px");
+    sparkle.style.animationDuration=(7+Math.random()*9).toFixed(2)+"s";
+    sparkle.style.animationDelay=(-Math.random()*15).toFixed(2)+"s";
+    sparkle.style.opacity=(.3+Math.random()*.6).toFixed(2);
+    fragment.appendChild(sparkle);
+  }
+  heroSparkles.appendChild(fragment);
+}
