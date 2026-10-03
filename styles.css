@@ -110,8 +110,12 @@ footer b{color:var(--gold)}
   .full-bleed-stage,.full-bleed-stage>img{min-height:560px}
 }
 @media(max-width:600px){
-  .editorial-break{display:flex;flex-direction:column;padding:75px 7vw;gap:18px}
-  .editorial-copy{order:1;padding:0}.editorial-image-main{order:2;width:100%;height:440px}.editorial-image-detail{order:3;width:72%;height:290px;margin:0 0 0 auto}
+  .editorial-break{display:flex;flex-direction:column;padding:72px 7vw;gap:24px}
+  .editorial-copy{order:1;padding:0}
+  .editorial-image-main,.editorial-image-detail{order:2;width:100%;height:auto;margin:0}
+  .editorial-image-main{aspect-ratio:4/5}
+  .editorial-image-detail{aspect-ratio:4/5}
+  .editorial-image img{width:100%;height:100%;object-fit:cover}
   .full-bleed-stage,.full-bleed-stage>img{min-height:500px}.full-bleed-stage-copy{padding:70px 7vw}.full-bleed-stage-copy h2{font-size:clamp(3rem,13vw,5rem)}
 }
 
