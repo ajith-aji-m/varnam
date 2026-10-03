@@ -1,0 +1,61 @@
+name: Refresh staging wedding assets
+
+on:
+  push:
+    branches: [staging]
+    paths:
+      - ".github/workflows/refresh-assets.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  assets:
+    if: "!contains(github.event.head_commit.message, '[assets]')"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download and optimize Pexels assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p assets/tmp
+          curl -L --fail --retry 3 "https://images.pexels.com/photos/33417234/pexels-photo-33417234.jpeg?cs=srgb&dl=pexels-thevisionaryvows-33417234.jpg&fm=jpg" -o assets/tmp/hero.jpg
+          curl -L --fail --retry 3 "https://images.pexels.com/photos/33417236/pexels-photo-33417236.jpeg?cs=srgb&dl=pexels-thevisionaryvows-33417236.jpg&fm=jpg" -o assets/tmp/entrance.jpg
+          curl -L --fail --retry 3 "https://images.pexels.com/photos/39797465/pexels-photo-39797465.jpeg?cs=srgb&dl=pexels-aumgraphy-39797465.jpg&fm=jpg" -o assets/tmp/mandapam.jpg
+          curl -L --fail --retry 3 "https://images.pexels.com/photos/5599007/pexels-photo-5599007.jpeg?cs=srgb&dl=pexels-tasprint-5599007.jpg&fm=jpg" -o assets/tmp/bride.jpg
+
+          magick assets/tmp/hero.jpg -auto-orient -resize '2400x1350^' -gravity center -extent 2400x1350 -strip -quality 88 assets/hero-mandapam.webp
+          magick assets/tmp/entrance.jpg -auto-orient -resize '1800x2250^' -gravity center -extent 1800x2250 -strip -quality 88 assets/entrance.webp
+          magick assets/tmp/mandapam.jpg -auto-orient -resize '1800x2250^' -gravity center -extent 1800x2250 -strip -quality 88 assets/mandapam.webp
+          magick assets/tmp/bride.jpg -auto-orient -resize '1600x2000^' -gravity center -extent 1600x2000 -strip -quality 88 assets/bride-detail.webp
+
+          rm -rf assets/tmp
+
+      - name: Record image sources
+        run: |
+          cat > assets/SOURCES.md <<'EOF'
+          # Image Sources
+
+          These production assets are optimized WebP copies of free-to-use Pexels photos selected to match the Varnam crimson-red / antique-gold wedding direction.
+
+          - hero-mandapam.webp — Pexels photo 33417234 — The Visionary Vows
+          - entrance.webp — Pexels photo 33417236 — The Visionary Vows
+          - mandapam.webp — Pexels photo 39797465 — Uday Ahir
+          - bride-detail.webp — Pexels photo 5599007 — Animesh Majhi
+
+          Source pages:
+          - https://www.pexels.com/photo/luxurious-outdoor-indian-wedding-venue-setup-33417234/
+          - https://www.pexels.com/photo/traditional-indian-wedding-mandap-decorated-with-flowers-33417236/
+          - https://www.pexels.com/photo/elegant-outdoor-indian-wedding-mandap-decor-39797465/
+          - https://www.pexels.com/photo/woman-in-red-and-gold-sari-5599007/
+          EOF
+
+      - name: Commit optimized assets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets
+          git commit -m "Add optimized wedding photo assets [assets]"
+          git push origin staging
